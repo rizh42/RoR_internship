@@ -1,5 +1,5 @@
 class Train
-  attr_accessor :number, :type, :vans_count, :speed, :route, :curr_station, :station
+  attr_accessor :number, :type, :vans_count, :speed, :route, :curr_station
   
   def initialize(num, tp, count)
     @number = num
