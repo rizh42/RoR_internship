@@ -50,4 +50,16 @@ class Train
       puts "Train's speed should be 0"
     end
   end
+
+  def get_previous_st
+    route.stations[curr_station - 1]
+  end
+
+  def get_curr_st
+    route.stations[curr_station]
+  end
+
+  def get_next_st
+    route.stations[curr_station + 1]
+  end
 end
