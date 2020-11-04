@@ -9,13 +9,7 @@ class Route
     stations.insert(-2, station)
   end
   
-  def get_route
-    stations.each{ |item|
-      puts "#{item.name}"
-    }
-  end
-  
-  def del_station(name)
+  def delete_station(name)
     stations.delete(name)
   end
 end

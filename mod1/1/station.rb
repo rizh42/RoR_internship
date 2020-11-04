@@ -1,5 +1,6 @@
 class Station
-  attr_accessor :name, :trains
+  attr_accessor :trains, :pass_trains, :freight_trains
+  attr_reader :name
   
   def initialize(name)
     @name = name
@@ -10,26 +11,22 @@ class Station
     self.trains << train
   end
 
-  def get_all_trains
-    trains.each_index{ |item| puts "Train №#{item + 1}: #{trains[item].number}" }
-  end
-
   def get_pass_trains
-    puts "Passenger trains:"
-    trains.each{ |item|
+    @pass_trains = []
+    trains.each do |item|
       if item.type == "pass"
-        puts "#{item.name}"
+        self.pass_trains << item
       end
-    }
+    end
   end
 
   def get_freight_trains
-    puts "Freight train:"
-    trains.each{ |item|
+    @freight_trains = []
+    trains.each do |item|
       if item.type == "freight"
-        puts "#{item.name}"
+        self.freight_trains << item
       end
-    }
+    end
   end
 
   def del_train(train)
