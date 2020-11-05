@@ -11,14 +11,14 @@ class Station
     trains << train
   end
 
-  def pass_trains
+  def pass_train
     @pass_trains = []
     trains.each do |item|
       pass_trains << item if item.type == 'pass'
     end
   end
 
-  def freight_trains
+  def freight_train
     @freight_trains = []
     trains.each do |item|
       freight_trains << item if item.type == 'freight'
