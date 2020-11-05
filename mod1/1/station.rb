@@ -16,6 +16,7 @@ class Station
     trains.each do |item|
       pass_trains << item if item.type == 'pass'
     end
+    return pass_trains
   end
 
   def freight_train
@@ -23,6 +24,7 @@ class Station
     trains.each do |item|
       freight_trains << item if item.type == 'freight'
     end
+    return freight_trains
   end
 
   def del_train(train)
