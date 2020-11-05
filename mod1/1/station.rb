@@ -1,5 +1,5 @@
 class Station
-  attr_accessor :trains, :pass_trains, :freight_trains
+  attr_accessor :trains
   attr_reader :name
 
   def initialize(name)
@@ -12,19 +12,12 @@ class Station
   end
 
   def pass_train
-    @pass_trains = []
-    trains.each do |item|
-      pass_trains << item if item.type == 'pass'
-    end
-    return pass_trains
+    trains.filter { |train| train.type == 'freight' }
   end
 
   def freight_train
     @freight_trains = []
-    trains.each do |item|
-      freight_trains << item if item.type == 'freight'
-    end
-    return freight_trains
+    trains.filter { |train| train.type == 'freight' }
   end
 
   def del_train(train)
