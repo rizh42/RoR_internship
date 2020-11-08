@@ -48,31 +48,3 @@ class Train
     route.stations[curr_station_index + 1] if curr_station_index != route.stations.size - 1
   end
 end
-
-class CargoTrain < Train
-  def add_wagon(wagon)
-    if speed.zero? && wagon.type == 'cargo'
-      wagons << wagon
-    else
-      puts "Train's speed should be 0 or wagon's type is incorrect"
-    end
-  end
-
-  def remove_wagon
-    wagons.delete(wagons.last) if speed.zero?
-  end
-end
-
-class PassengerTrain < Train
-  def add_wagon(wagon)
-    if speed.zero? && wagon.type == 'pass'
-      wagons << wagon
-    else
-      puts "Train's speed should be 0 or wagon's type is incorrect"
-    end
-  end
-
-  def remove_wagon
-    wagons.delete(wagons.last) if speed.zero?
-  end
-end
