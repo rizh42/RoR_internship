@@ -1,4 +1,6 @@
 require_relative 'route'
+require_relative 'passenger_train'
+require_relative 'cargo_train'
 require_relative 'train'
 require_relative 'station'
 require_relative 'wagon'
@@ -29,9 +31,9 @@ command = gets.chomp!
 until command == ''
   case command
   when '0'
-    stations.each { |item| item }
-    routes.each { |item| item }
-    trains.each { |item| item }
+    stations.each { |item| puts item }
+    routes.each { |item| puts item }
+    trains.each { |item| puts item }
   when 'a'
     puts "Enter station's name:"
     tmp = gets.chomp!
@@ -41,9 +43,9 @@ until command == ''
     puts "Enter train's id and type"
     tmp = gets.chomp!.split(' ')
     trains[tmp[0]] = if tmp[1] == 'cargo'
-                       CargoTrain.new(tmp[0], 'cargo')
+                       CargoTrain.new(tmp[0])
                      else
-                       PassTrain.new(tmp[0], 'pass')
+                       PassengerTrain.new(tmp[0])
                      end
   when 'c'
     if stations.size > 2

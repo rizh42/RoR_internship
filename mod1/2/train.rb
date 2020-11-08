@@ -1,9 +1,11 @@
 class Train
-  attr_accessor :id, :wagons, :speed, :route, :type
+  # public 'cause we need to read and change them
+  attr_accessor :wagons, :speed
+  # public 'cause we need to read them
+  attr_reader :id, :route, :type
 
-  def initialize(id, tp)
+  def initialize(id)
     @id = id
-    @type = tp
     @wagons = []
     @speed = 0
   end
@@ -16,10 +18,6 @@ class Train
     @route = rt
     route.stations.first.add_train(self)
     @curr_station_index = 0
-  end
-
-  def accelerate(sp)
-    self.speed += sp
   end
 
   def move_forward
@@ -47,4 +45,9 @@ class Train
   def next_station
     route.stations[curr_station_index + 1] if curr_station_index != route.stations.size - 1
   end
+
+  private
+
+  # private because these fields are not changing during lifetime of class
+  attr_writer :id, :route, :type
 end
