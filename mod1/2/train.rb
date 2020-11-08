@@ -1,7 +1,5 @@
 class Train
-  # public 'cause we need to read and change them
   attr_accessor :wagons, :speed
-  # public 'cause we need to read them
   attr_reader :id, :route, :type
 
   def initialize(id)
