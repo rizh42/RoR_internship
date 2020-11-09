@@ -44,6 +44,14 @@ class Train
     route.stations[curr_station_index + 1] if curr_station_index != route.stations.size - 1
   end
 
+  def remove_wagon
+    wagons.delete(wagons.last) if speed.zero?
+  end
+
+  def add_wagon(wagon)
+    wagons << wagon if speed.zero? && wagon.type == type
+  end
+
   private
 
   # private because these fields are not changing during lifetime of class
