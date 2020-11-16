@@ -5,8 +5,6 @@ class Route
 
   attr_accessor :route_stations
 
-  @instances = 0
-
   def initialize(first_st, last_st)
     @route_stations = [first_st, last_st]
     register_instance

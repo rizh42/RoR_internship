@@ -7,7 +7,6 @@ class Station
   attr_reader :name
 
   @@stations = {}
-  @instances = 0
 
   def self.all
     @@stations
@@ -30,7 +29,6 @@ class Station
   end
 
   def cargo_train
-    @freight_trains = []
     trains.filter { |train| train.type == 'cargo' }
   end
 
