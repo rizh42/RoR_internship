@@ -6,16 +6,16 @@ class Station
   attr_accessor :trains
   attr_reader :name
 
-  @stations = {}
+  @@stations = {}
 
   def self.all
-    @stations
+    @@stations
   end
 
   def initialize(name)
     @name = name
     @trains = []
-    @stations[name] = self
+    @@stations[name] = self
     register_instance
   end
 

@@ -8,17 +8,17 @@ class Train
   attr_reader :id, :route, :type
 
   def self.find(id)
-    @trains[id]
+    @@trains[id]
   end
 
-  @trains = {}
+  @@trains = {}
 
   def initialize(id)
     register_instance
     @id = id
     @wagons = []
     @speed = 0
-    @trains[id] = self
+    @@trains[id] = self
   end
 
   def stop
