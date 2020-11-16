@@ -96,6 +96,13 @@ class Interface
                        PassengerTrain.new(tmp[0])
                      end
     puts "New train has been created:\n  #{trains[tmp[0]]}"
+  rescue RuntimeError => e
+    if e.message == 'error_id'
+      puts "Wrong ID format!"
+    else
+      puts "ID cannot be nil!"
+    end
+    retry
   end
 
   def create_route
