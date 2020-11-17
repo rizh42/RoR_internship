@@ -88,7 +88,7 @@ class Interface
   end
 
   def create_train
-    puts "Enter train's id and type"
+    puts "Enter train's id and type:"
     tmp = gets.chomp!.split(' ')
     trains[tmp[0]] = if tmp[1] == 'cargo'
                        CargoTrain.new(tmp[0])
@@ -96,6 +96,13 @@ class Interface
                        PassengerTrain.new(tmp[0])
                      end
     puts "New train has been created:\n  #{trains[tmp[0]]}"
+  rescue RuntimeError => e
+    if e.message == 'error_id'
+      puts 'Wrong ID format!'
+    else
+      puts 'ID cannot be nil!'
+    end
+    retry
   end
 
   def create_route
