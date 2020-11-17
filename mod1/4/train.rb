@@ -16,24 +16,12 @@ class Train
   @@trains = {}
 
   def initialize(id)
-    register_instance
     @id = id
     @wagons = []
     @speed = 0
+    validate!
+    register_instance
     @@trains[id] = self
-    validate!
-  end
-
-  def validate!
-    raise "nil" if id.nil?
-    raise "error_id" if id !~ ID_FORMAT
-  end
-
-  def valid?
-    validate!
-    true
-  rescue
-    false
   end
 
   def stop
@@ -78,6 +66,20 @@ class Train
 
   def add_wagon(wagon)
     wagons << wagon if speed.zero? && wagon.type == type
+  end
+
+  protected
+
+  def validate!
+    raise 'nil' if id.nil?
+    raise 'error_id' if id !~ ID_FORMAT
+  end
+
+  def valid?
+    validate!
+    true
+  rescue
+    false
   end
 
   private
