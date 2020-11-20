@@ -36,6 +36,8 @@ class Station
   end
 
   def to_block
-    yield(trains) if block_given?
+    trains.each do |train|
+      yield(train) if block_given?
+    end
   end
 end

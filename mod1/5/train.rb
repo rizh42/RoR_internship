@@ -69,8 +69,8 @@ class Train
   end
 
   def to_block
-    trains.each do |train|
-      yield(wagons) if block_given?
+    wagons.each do |wagon|
+      yield(wagon) if block_given?
     end
   end
 
