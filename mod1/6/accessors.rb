@@ -15,7 +15,7 @@ module Accessors
           history[name] << value
           instance_variable_set(var_name, value)
         end
-        define_method ("#{name}_history") do
+        define_method("#{name}_history") do
           @history[name]
         end
       end

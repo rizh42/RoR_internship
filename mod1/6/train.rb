@@ -82,7 +82,7 @@ class Train
       yield(wagon) if block_given?
     end
   end
-  
+
   private
 
   # private because these fields are not changing during lifetime of class
